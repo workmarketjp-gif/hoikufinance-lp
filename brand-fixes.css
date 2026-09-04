@@ -1,0 +1,113 @@
+/* Hoiku Finance official branding + softer typography */
+
+body{
+  font-family:"Noto Sans JP",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+h1,h2,h3,h4,
+.hero h1,
+.section-heading h2,
+.split-heading h2,
+.report-copy h2,
+.flow-heading h2,
+.pricing-panel h2,
+.cta-copy h2,
+.feature-card h3,
+.stack-card h3,
+.control-side h3,
+.report-dashboard h3,
+.report-export h4{
+  font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif !important;
+  letter-spacing:-.035em;
+}
+
+.hero h1{
+  font-weight:900;
+  line-height:1.38;
+}
+
+.section-heading h2,
+.split-heading h2,
+.report-copy h2,
+.flow-heading h2,
+.pricing-panel h2,
+.cta-copy h2{
+  font-weight:700;
+}
+
+.feature-card h3,
+.stack-card h3,
+.control-side h3,
+.report-dashboard h3,
+.report-export h4{
+  font-weight:700;
+}
+
+.official-logo{
+  display:block;
+  width:auto;
+  max-width:100%;
+  object-fit:contain;
+}
+
+.site-header .brand{
+  min-width:190px;
+}
+
+.site-header .official-logo{
+  width:188px;
+  height:48px;
+}
+
+.site-footer .brand{
+  min-width:178px;
+}
+
+.site-footer .official-logo{
+  width:178px;
+  height:44px;
+}
+
+.dash-brand{
+  min-height:28px;
+}
+
+.dash-brand .official-logo{
+  width:112px;
+  height:28px;
+}
+
+.official-mark{
+  display:inline-block;
+  width:22px;
+  height:22px;
+  object-fit:contain;
+  flex:0 0 auto;
+}
+
+.koko-badge .official-mark{
+  width:14px;
+  height:14px;
+}
+
+.cta-copy > .official-mark{
+  width:62px;
+  height:62px;
+  margin-bottom:20px;
+}
+
+/* Remove the hand-built logo treatment once the official files are mounted. */
+.brand-mark.is-replaced,
+.mini-mark.is-replaced{
+  display:none !important;
+}
+
+@media (max-width:880px){
+  .site-header .brand{min-width:0}
+  .site-header .official-logo{width:154px;height:40px}
+  .site-footer .official-logo{width:154px;height:40px}
+}
+
+@media (max-width:520px){
+  .site-header .official-logo{width:142px;height:38px}
+}
