@@ -1,4 +1,46 @@
 (() => {
+  const mountOfficialBranding = () => {
+    const fullLogo = '/logo/logo_hoikufinance.png';
+    const markLogo = '/logo/logom_hoikufinance.png';
+
+    document.querySelectorAll('.site-header .brand, .site-footer .brand').forEach((brand) => {
+      brand.innerHTML = `<img class="official-logo" src="${fullLogo}" alt="Hoiku Finance">`;
+    });
+
+    const dashBrand = document.querySelector('.dash-brand');
+    if (dashBrand) {
+      dashBrand.innerHTML = `<img class="official-logo" src="${fullLogo}" alt="Hoiku Finance">`;
+    }
+
+    document.querySelectorAll('.mini-mark').forEach((mark) => {
+      const image = document.createElement('img');
+      image.className = 'official-mark';
+      image.src = markLogo;
+      image.alt = '';
+      image.setAttribute('aria-hidden', 'true');
+      mark.replaceWith(image);
+    });
+
+    document.querySelectorAll('.brand-mark').forEach((mark) => {
+      const image = document.createElement('img');
+      image.className = 'official-mark';
+      image.src = markLogo;
+      image.alt = '';
+      image.setAttribute('aria-hidden', 'true');
+      mark.replaceWith(image);
+    });
+
+    if (!document.querySelector('link[rel="icon"]')) {
+      const favicon = document.createElement('link');
+      favicon.rel = 'icon';
+      favicon.type = 'image/png';
+      favicon.href = `${markLogo}?v=20260904`;
+      document.head.appendChild(favicon);
+    }
+  };
+
+  mountOfficialBranding();
+
   const revealItems = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -38,7 +80,6 @@
   }
 
   const header = document.querySelector('.site-header');
-  let lastY = window.scrollY;
   let ticking = false;
 
   const updateHeader = () => {
@@ -46,7 +87,6 @@
     if (header) {
       header.style.boxShadow = y > 30 ? '0 8px 24px rgba(31,73,125,.06)' : 'none';
     }
-    lastY = y;
     ticking = false;
   };
 
