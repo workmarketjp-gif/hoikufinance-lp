@@ -29,6 +29,12 @@ builtHtml = builtHtml.replace(
   '  <link rel="icon" type="image/png" href="/logo/logom_hoikufinance.png?v=20260904">\n  <link rel="apple-touch-icon" href="/logo/logom_hoikufinance.png?v=20260904">\n</head>'
 );
 
+const adminUrl = 'https://admin.hoikufinance.jp/';
+builtHtml = builtHtml.replace(
+  '</body>',
+  `  <script>\n    (() => {\n      const adminUrl = ${JSON.stringify(adminUrl)};\n      document.querySelectorAll('a').forEach((link) => {\n        const label = (link.textContent || '').trim();\n        if (label === 'ログイン' || label.includes('管理画面')) {\n          link.href = adminUrl;\n          link.target = '_self';\n          link.rel = '';\n        }\n      });\n    })();\n  </script>\n</body>`
+);
+
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 await Promise.all([
@@ -39,4 +45,4 @@ await Promise.all([
   cp(resolve(root, 'logo'), resolve(output, 'logo'), { recursive: true }),
 ]);
 
-console.log(`Built ${output} with CSS, branding assets and JavaScript embedded atomically.`);
+console.log(`Built ${output} with CSS, branding assets, admin links and JavaScript embedded atomically.`);
